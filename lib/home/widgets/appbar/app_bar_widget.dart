@@ -1,4 +1,3 @@
-import 'package:DevQuiz/core/app_config.dart';
 import 'package:DevQuiz/core/core.dart';
 import 'package:DevQuiz/home/widgets/score_card/score_card_widget.dart';
 import 'package:flutter/material.dart';
@@ -15,33 +14,34 @@ class AppBarWidget extends PreferredSize {
                     decoration: BoxDecoration(gradient: AppGradients.linear),
                     height: 161,
                     width: double.maxFinite,
-                    padding: const EdgeInsets.symmetric(horizontal: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 14),
                     child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [                        
-                        Text.rich(
-                          TextSpan(
-                              text: "Olá, ",
-                              style: AppTextStyles.title,
-                              children: [
-                                TextSpan(
-                                    text: "Weslley",
-                                    style: AppTextStyles.titleBold)
-                              ]),
-                        ),
+                      children: [
+                        Text.rich(TextSpan(
+                            text: "Olá, ",
+                            style: AppTextStyles.title,
+                            children: [
+                              TextSpan(
+                                  text: "Weslley Fratini",
+                                  style: AppTextStyles.titleBold)
+                            ])),
                         Container(
-                          height: 58,
+                          margin: EdgeInsets.only(bottom: 20),
                           width: 58,
+                          height: 58,
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10),
+                              borderRadius: BorderRadius.circular(8),
                               image: DecorationImage(
                                   image: NetworkImage(
-                                      AppConfig.GithubPhotoUrl))),
-                        )
+                                      "https://avatars.githubusercontent.com/u/39966929?v=4"))),
+                        ),
                       ],
                     ),
                   ),
-                  Align(alignment: Alignment(0, 1), child: ScoreCardWidget())
+                  Align(
+                      alignment: Alignment(0.0, 1.0), child: ScoreCardWidget())
                 ],
               ),
             ));
