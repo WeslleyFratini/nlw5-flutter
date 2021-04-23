@@ -1,44 +1,52 @@
-import 'package:DevQuiz/challenge/challenge_page.dart';
-import 'package:DevQuiz/core/core.dart';
-import 'package:DevQuiz/shared/widget/progress_indicator/progress_indicator.dart';
 import 'package:flutter/material.dart';
 
-class QuizCardWidget extends StatelessWidget {
-final String title;
-final String completed;
-final double percent;
-const QuizCardWidget({Key? key, required this.title, required this.completed, required this.percent}) : super(key:key);
+import 'package:DevQuiz/core/app_colors.dart';
+import 'package:DevQuiz/core/core.dart';
+import 'package:DevQuiz/shared/widget/progress_indicator/progress_indicator_line_widget.dart';
 
+class QuizCardWidget extends StatelessWidget {
+  final String title;
+  final String completed;
+  final double progress;
+  final String image;
+  final VoidCallback onTap;
+
+  const QuizCardWidget({
+    Key? key,
+    required this.title,
+    required this.completed,
+    required this.progress,
+    required this.image,
+    required this.onTap,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => ChallengePage()),
-        );
-      },
+      onTap: onTap,
       child: Container(
-        padding: EdgeInsets.all(16),
+        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         decoration: BoxDecoration(
+            border: Border.fromBorderSide(BorderSide(color: AppColors.border)),
             color: AppColors.white,
-            borderRadius: BorderRadius.circular(10),
-            border: Border.fromBorderSide(BorderSide(color: AppColors.border))),
+            borderRadius: BorderRadius.circular(10)),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Container(
-              width: 35,
-              height: 35,
-              child: Image.asset(AppImages.blocks),
+              width: 40,
+              height: 40,
+              child: Image.asset(image),
             ),
             SizedBox(
-              height: 10,
+              height: 24,
             ),
-            Text(title, style: AppTextStyles.heading15),
+            Text(
+              title,
+              style: AppTextStyles.heading15,
+            ),
             SizedBox(
-              height: 20,
+              height: 24,
             ),
             Row(
               children: [
@@ -49,17 +57,12 @@ const QuizCardWidget({Key? key, required this.title, required this.completed, re
                     style: AppTextStyles.body11,
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
                 Expanded(
-                  flex: 3,
-                  child: ProgressIndicatorWidget(
-                    value: percent,
-                  ),
+                  flex: 2,
+                  child: ProgressIndicatorLineWidget(value: progress),
                 )
               ],
-            )
+            ),
           ],
         ),
       ),
