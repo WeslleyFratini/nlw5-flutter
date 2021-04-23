@@ -1,8 +1,7 @@
+import 'package:DevQuiz/shared/widget/progress_indicator/progress_indicator.dart';
 import 'package:flutter/material.dart';
-
 import 'package:DevQuiz/core/app_colors.dart';
 import 'package:DevQuiz/core/core.dart';
-import 'package:DevQuiz/shared/widget/progress_indicator/progress_indicator_line_widget.dart';
 
 class QuizCardWidget extends StatelessWidget {
   final String title;

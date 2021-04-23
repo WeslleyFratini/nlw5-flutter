@@ -1,3 +1,4 @@
+import 'package:DevQuiz/shared/widget/progress_indicator/progress_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:DevQuiz/core/core.dart';
 
