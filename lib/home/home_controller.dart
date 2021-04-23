@@ -1,43 +1,26 @@
-import 'package:DevQuiz/core/core.dart';
+// import 'package:DevQuiz/core/app_images.dart';
+import 'package:DevQuiz/home/home_repository.dart';
 import 'package:DevQuiz/home/home_state.dart';
-import 'package:DevQuiz/shared/models/awnser_model.dart';
-import 'package:DevQuiz/shared/models/question_model.dart';
+// import 'package:DevQuiz/shared/models/awnser_model.dart';
+// import 'package:DevQuiz/shared/models/question_model.dart';
 import 'package:DevQuiz/shared/models/quiz_model.dart';
 import 'package:DevQuiz/shared/models/user_model.dart';
+import 'package:flutter/cupertino.dart';
 
 class HomeController {
-  HomeState state = HomeState.empty;
+  final stateNotifier = ValueNotifier<HomeState>(HomeState.empty);
+  set state(HomeState state) => stateNotifier.value = state;
+  HomeState get state => stateNotifier.value;
 
   UserModel? user;
   List<QuizModel>? quizzes;
 
-  void getUser() {
-    user = UserModel(
-        name: "Weslley Fratini",
-        photoUrl: "https://avatars.githubusercontent.com/u/39966929?v=4");
-  }
-}
+  final repository = HomeRepository();
 
-void getQuizzes() {
-  quizzes = [
-    QuizModel(
-        title: "NLW5 - Flutter ",
-        imagem: AppImages.blocks,
-        questionAwnsered: 1,
-        level: Level.facil,
-        questions: [
-          QuestionModel(title: "Esta curtindo o Flutter?", awnsers: [
-            AwnserModel(title: "Estou curtindo"),
-            AwnserModel(title: "Estou adorando"),
-            AwnserModel(title: "Estou achando massa"),
-            AwnserModel(title: "Estou achando show de bola", isRight: true),
-          ]),
-          QuestionModel(title: "Esta curtindo o Flutter?", awnsers: [
-            AwnserModel(title: "Estou curtindo"),
-            AwnserModel(title: "Estou adorando"),
-            AwnserModel(title: "Estou achando massa"),
-            AwnserModel(title: "Estou achando show de bola", isRight: true),
-          ])
-        ])
-  ];
+  void getFetchData() async {
+    state = HomeState.loading;
+    user = await repository.getUser();
+    quizzes = await repository.getQuizzes();
+    state = HomeState.success;
+  }
 }
