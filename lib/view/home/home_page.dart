@@ -1,6 +1,5 @@
 import 'package:dev_quiz/core/app_routes.dart';
 import 'package:dev_quiz/core/core.dart';
-import 'package:dev_quiz/routers/routers.dart';
 import 'package:dev_quiz/view/home/home_controller.dart';
 import 'package:dev_quiz/view/home/home_state.dart';
 import 'package:dev_quiz/view/home/widgets/appbar/app_bar_widget.dart';

@@ -1,9 +1,10 @@
-import 'package:DevQuiz/core/app_colors.dart';
+import 'package:dev_quiz/core/core.dart';
 import 'package:flutter/material.dart';
 
-class ProgressIndicatorLineWidget extends StatelessWidget {
+class ProgressIndicatorWidget extends StatelessWidget {
   final double value;
-  const ProgressIndicatorLineWidget({Key? key, required this.value})
+
+  const ProgressIndicatorWidget({Key? key, required this.value})
       : super(key: key);
 
   @override

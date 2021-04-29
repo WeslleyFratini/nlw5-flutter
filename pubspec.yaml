@@ -1,4 +1,4 @@
-name: DevQuiz
+name: dev_quiz
 description: DevQuiz - Weslley Fratini
 version: 1.0.0+1
 
@@ -10,14 +10,28 @@ dependencies:
     sdk: flutter
   cupertino_icons: ^1.0.2
   google_fonts: ^2.0.0
+  share_plus: ^2.0.1 # para compartilhar dados entre a aplicacao e aplicativos de terceiros
+  google_sign_in: ^5.0.2
+  firebase_core: ^1.0.4
+  firebase_auth: ^1.1.1
+  provider: ^5.0.0
+  shared_preferences: ^2.0.5
+  firebase_database: ^6.1.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  flutter_launcher_icons: ^0.9.0
 
 flutter:
   assets:
     - assets/images/
-    - assets/database/
+    - database/
 
   uses-material-design: true
+
+
+flutter_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/icon.png"

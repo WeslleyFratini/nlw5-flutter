@@ -1,8 +1,8 @@
+import 'package:dev_quiz/challenge/widgets/next_button/next_button_widget.dart';
+import 'package:dev_quiz/routes/routes.dart';
 import 'package:dev_quiz/core/app_routes.dart';
 import 'package:dev_quiz/core/app_text_styles.dart';
 import 'package:dev_quiz/core/core.dart';
-import 'package:dev_quiz/routers/routers.dart';
-import 'package:dev_quiz/view/challenge/widgets/next_button/next_button_widget.dart';
 import 'package:dev_quiz/view/home/home_page.dart';
 import 'package:dev_quiz/view/login/login_controller.dart';
 import 'package:dev_quiz/view/settings/settings_controller.dart';

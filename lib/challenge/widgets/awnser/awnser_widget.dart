@@ -1,6 +1,5 @@
-import 'package:DevQuiz/core/app_colors.dart';
-import 'package:DevQuiz/core/app_text_styles.dart';
-import 'package:DevQuiz/core/app_theme.dart';
+
+import 'package:DevQuiz/view/shared/models/awnser_model.dart';
 import 'package:flutter/material.dart';
 
 class AnswerWidget extends StatelessWidget {

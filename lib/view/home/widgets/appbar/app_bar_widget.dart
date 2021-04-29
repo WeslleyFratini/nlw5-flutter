@@ -1,6 +1,6 @@
+import 'package:dev_quiz/routes/routes.dart';
 import 'package:dev_quiz/core/app_routes.dart';
 import 'package:dev_quiz/core/core.dart';
-import 'package:dev_quiz/routers/routers.dart';
 import 'package:dev_quiz/view/home/widgets/score_card/score_card_widget.dart';
 import 'package:dev_quiz/view/shared/models/user_model.dart';
 import 'package:flutter/material.dart';
