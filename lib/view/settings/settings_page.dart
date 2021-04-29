@@ -1,17 +1,16 @@
-import 'package:dev_quiz/routers/routers.dart';
-import 'package:dev_quiz/view/challenge/widgets/next_button/next_button_widget.dart';
+import 'package:dev_quiz/challenge/widgets/next_button/next_button_widget.dart';
+import 'package:dev_quiz/routes/routes.dart';
+import 'package:dev_quiz/view/settings/widets/settings_tile.dart';
+import 'package:dev_quiz/view/shared/widget/gradient_app_bar_widget.dart';
 import 'package:dev_quiz/view/login/login_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-
 import 'package:dev_quiz/core/app_routes.dart';
 import 'package:dev_quiz/core/app_text_styles.dart';
 import 'package:dev_quiz/core/app_theme.dart';
 import 'package:dev_quiz/core/core.dart';
 import 'package:dev_quiz/view/settings/settings_controller.dart';
-import 'package:dev_quiz/view/settings/widgets/settings_tile.dart';
 import 'package:dev_quiz/view/shared/models/user_model.dart';
-import 'package:dev_quiz/view/shared/widgets/gradient_app_bar_widget.dart';
 
 class SettingsPage extends StatefulWidget {
   final UserModel user;

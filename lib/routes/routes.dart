@@ -1,7 +1,6 @@
+import 'package:dev_quiz/challenge/challenge_page.dart';
 import 'package:dev_quiz/view/settings/settings_page.dart';
 import 'package:flutter/material.dart';
-
-import 'package:dev_quiz/view/challenge/challenge_page.dart';
 import 'package:dev_quiz/view/home/home_page.dart';
 import 'package:dev_quiz/view/login/login_page.dart';
 import 'package:dev_quiz/view/result/result_page.dart';

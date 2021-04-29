@@ -1,7 +1,7 @@
+import 'package:dev_quiz/challenge/widgets/awnser/awnser_widget.dart';
+import 'package:dev_quiz/view/shared/models/awnser_model.dart';
 import 'package:dev_quiz/core/app_text_styles.dart';
-import 'package:dev_quiz/view/challenge/widgets/answer/answer_widget.dart';
 import 'package:dev_quiz/view/settings/settings_controller.dart';
-import 'package:dev_quiz/view/shared/models/answer_model.dart';
 import 'package:dev_quiz/view/shared/models/question_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

@@ -1,3 +1,4 @@
+import 'package:dev_quiz/routes/routes.dart';
 import 'package:dev_quiz/core/app_routes.dart';
 import 'package:dev_quiz/core/core.dart';
 import 'package:dev_quiz/view/home/home_controller.dart';

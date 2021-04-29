@@ -1,6 +1,11 @@
 
-import 'package:DevQuiz/view/shared/models/awnser_model.dart';
+import 'package:dev_quiz/core/app_colors.dart';
+import 'package:dev_quiz/core/app_text_styles.dart';
+import 'package:dev_quiz/core/app_theme.dart';
+import 'package:dev_quiz/view/settings/settings_controller.dart';
+import 'package:dev_quiz/view/shared/models/awnser_model.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class AnswerWidget extends StatelessWidget {
   final AnswerModel answerModel;
