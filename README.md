@@ -1,4 +1,4 @@
-# ❓ DevQuiz
+# DevQuiz
 
 ## ⚠️ Requirements
 
