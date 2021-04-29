@@ -1,52 +1,82 @@
-import 'package:DevQuiz/core/app_colors.dart';
-import 'package:DevQuiz/core/core.dart';
-import 'package:DevQuiz/home/widgets/chart/chart_widget.dart';
+
+import 'package:dev_quiz/core/app_theme.dart';
+import 'package:dev_quiz/view/home/widgets/chart/chart_widget.dart';
+import 'package:dev_quiz/view/settings/settings_controller.dart';
 import 'package:flutter/material.dart';
 
+import 'package:dev_quiz/core/core.dart';
+import 'package:provider/provider.dart';
+
 class ScoreCardWidget extends StatelessWidget {
-  final int score;
-  const ScoreCardWidget({Key? key, required this.score}) : super(key: key);
+  final double scorePercentage;
+
+  const ScoreCardWidget({
+    Key? key,
+    required this.scorePercentage,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    SettingsController settingsController =
+        Provider.of<SettingsController>(context);
     return Padding(
-      padding: const EdgeInsets.only(left: 20, right: 20),
+      padding: const EdgeInsets.only(
+        left: 20,
+        right: 20,
+        // top: 14,
+      ),
       child: Container(
         height: 136,
         decoration: BoxDecoration(
-          color: AppColors.white,
           borderRadius: BorderRadius.circular(15),
-        ),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Expanded(
-              flex: 1,
-              child: ChartWidget(
-                score: score,
-              ),
+          color: AppTheme.backgroundColors(
+              settingsController.currentAppTheme.brightness),
+          boxShadow: <BoxShadow>[
+            BoxShadow(
+              color: AppColors.lightGrey,
             ),
-            Expanded(
-              flex: 2,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 20),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      "Vamos Começar",
-                      style: AppTextStyles.heading,
-                    ),
-                    Text(
-                      "Complete os desafios e avance",
-                      style: AppTextStyles.body,
-                    ),
-                  ],
+          ],
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0),
+          child: Row(
+            children: [
+              Expanded(
+                flex: 1,
+                child: ChartWidget(
+                  percent: scorePercentage,
                 ),
               ),
-            )
-          ],
+              Expanded(
+                flex: 3,
+                child: Padding(
+                  padding: const EdgeInsets.only(
+                    left: 24,
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        "Vamos começar",
+                        style: AppTextStyles.heading.copyWith(
+                          color:
+                              settingsController.currentAppTheme.primaryColor,
+                        ),
+                      ),
+                      Text(
+                        "Complete os desafios e avance em conhecimento",
+                        style: AppTextStyles.body.copyWith(
+                          color:
+                              settingsController.currentAppTheme.primaryColor,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

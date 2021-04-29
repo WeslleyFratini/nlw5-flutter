@@ -8,7 +8,7 @@ class UserModel {
   UserModel({
     required this.name,
     required this.photoUrl,
-    this.score = 0,
+    this.score = 50,
   });
 
   Map<String, dynamic> toMap() {

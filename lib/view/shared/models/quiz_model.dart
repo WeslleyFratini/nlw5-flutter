@@ -1,60 +1,61 @@
 import 'dart:convert';
 
-import 'package:DevQuiz/shared/models/question_model.dart';
+import 'package:dev_quiz/view/shared/models/question_model.dart';
 
-enum Level { easy, medium, hard, expert }
+enum Level { facil, medio, dificil, perito }
 
+// essa extensao vai ser adicionada nas possibilidades da String
 extension LevelStringExt on String {
-  Level get parse => {
-        "Fácil": Level.easy,
-        "Medio": Level.medium,
-        "Dicfícil": Level.hard,
-        "Perito": Level.expert
-      }[this]!;
+  Level get levelParseFromString => {
+        "facil": Level.facil,
+        "medio": Level.medio,
+        "dificil": Level.dificil,
+        "perito": Level.perito,
+      }[this]!; // o this representa a string que se esta passando
 }
 
 extension LevelExt on Level {
-  String get parse => {
-        Level.easy: "Fácil",
-        Level.medium: "Medio",
-        Level.hard: "Dicfícil",
-        Level.expert: "Perito"
-      }[this]!;
+  String get levelParseFromLevel => {
+        Level.facil: "facil",
+        Level.medio: "medio",
+        Level.dificil: "dificil",
+        Level.perito: "perito",
+      }[this]!; // o this representa a string que se esta passando
 }
 
 class QuizModel {
   final String title;
-  final String imagen;
-  final Level level;
-  final int questionAnswered;
   final List<QuestionModel> questions;
+  final int questionsAnswered;
+  final String image;
+  final Level level;
 
   QuizModel({
     required this.title,
-    required this.imagen,
-    required this.level,
-    this.questionAnswered = 0,
     required this.questions,
+    this.questionsAnswered = 0,
+    required this.image,
+    required this.level,
   });
 
   Map<String, dynamic> toMap() {
     return {
       'title': title,
-      'imagen': imagen,
-      'level': level.parse,
-      'questionAnswered': questionAnswered,
       'questions': questions.map((x) => x.toMap()).toList(),
+      'questionsAnswered': questionsAnswered,
+      'image': image,
+      'level': level.levelParseFromLevel,
     };
   }
 
   factory QuizModel.fromMap(Map<String, dynamic> map) {
     return QuizModel(
       title: map['title'],
-      imagen: map['imagen'],
-      level: map['level'].toString().parse,
-      questionAnswered: map['questionAnswered'],
       questions: List<QuestionModel>.from(
           map['questions']?.map((x) => QuestionModel.fromMap(x))),
+      questionsAnswered: map['questionsAnswered'],
+      image: map['image'],
+      level: map['level'].toString().levelParseFromString,
     );
   }
 
