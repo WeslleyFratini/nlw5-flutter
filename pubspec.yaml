@@ -1,3 +1,4 @@
+
 name: dev_quiz
 description: DevQuiz - Weslley Fratini
 version: 1.0.0+1
@@ -25,7 +26,8 @@ dev_dependencies:
 
 flutter:
   assets:
-    - database
+    - assets/images/
+    - database/
 
   uses-material-design: true
 
