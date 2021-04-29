@@ -3,11 +3,9 @@ import 'package:dev_quiz/routes/routes.dart';
 import 'package:dev_quiz/core/app_routes.dart';
 import 'package:dev_quiz/core/app_text_styles.dart';
 import 'package:dev_quiz/core/core.dart';
-import 'package:dev_quiz/view/home/home_page.dart';
 import 'package:dev_quiz/view/login/login_controller.dart';
 import 'package:dev_quiz/view/settings/settings_controller.dart';
 import 'package:dev_quiz/view/shared/models/user_model.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
